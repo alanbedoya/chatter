@@ -1,7 +1,14 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Login } from './components';
+
 function App() {
   return (
-    <div className='App bg-gradient-to-r from-green-300 to-blue-500'>
-      <h1 className='text-gray-500'>You did it!</h1>
+    <div className='App h-screen bg-gradient-to-r from-pink-400 to-red-400'>
+      <Router>
+        <Switch>
+          <Route path='/' component={Login} />
+        </Switch>
+      </Router>
     </div>
   );
 }
