@@ -61,9 +61,9 @@ export const Login = () => {
             <div className='w-full md:w-1/3 px-3 pt-4 mx-2 border-t border-gray-400'>
               <button
                 onClick={() =>
-                  firebase
-                    .auth()
-                    .signInWithRedirect(new firebase.auth.TwitterAuthProvider())
+                  auth.signInWithRedirect(
+                    new firebase.auth.TwitterAuthProvider()
+                  )
                 }
                 className='appearance-none flex items-center justify-center w-full bg-gray-100 text-gray-700 shadow border border-gray-400 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none'
               >
@@ -73,9 +73,9 @@ export const Login = () => {
             <div className='w-full md:w-1/3 px-3 pt-5 mx-2'>
               <button
                 onClick={() =>
-                  firebase
-                    .auth()
-                    .signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+                  auth.signInWithRedirect(
+                    new firebase.auth.GoogleAuthProvider()
+                  )
                 }
                 className='appearance-none flex items-center justify-center w-full bg-gray-100 text-gray-700 shadow border border-gray-400 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none'
               >
@@ -85,9 +85,9 @@ export const Login = () => {
             <div className='w-full md:w-1/3 px-3 pt-4 mx-2 border-t border-gray-400'>
               <button
                 onClick={() =>
-                  firebase
-                    .auth()
-                    .signInWithRedirect(new firebase.auth.GithubAuthProvider())
+                  auth.signInWithRedirect(
+                    new firebase.auth.GithubAuthProvider()
+                  )
                 }
                 className='appearance-none flex items-center justify-center w-full bg-gray-100 text-gray-700 shadow border border-gray-400 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none'
               >
