@@ -33,7 +33,7 @@ export const Chats = () => {
       .get('https://api.chatengine.io/users/me/', {
         headers: {
           'project-id': process.env.REACT_APP_PROJECT_ID,
-          'user-name': user.displayName,
+          'user-name': user.email,
           'user-secret': user.uid,
         },
       })
@@ -43,8 +43,8 @@ export const Chats = () => {
 
       .catch(() => {
         let formdata = new FormData();
-        // formdata.append('email', user.email);
-        formdata.append('username', user.displayName);
+        formdata.append('email', user.email);
+        formdata.append('username', user.email);
         formdata.append('secret', user.uid);
 
         getFile(user.photoURL).then((avatar) => {
@@ -70,7 +70,7 @@ export const Chats = () => {
       <ChatEngine
         height='calc(95vh - 37px)'
         projectID={process.env.REACT_APP_PROJECT_ID}
-        userName={user.displayName}
+        userName={user.email}
         userSecret={user.uid}
       />
       <Footer />
