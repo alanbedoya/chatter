@@ -10,7 +10,7 @@ import { auth } from '../firebase';
 
 export const Login = () => {
   return (
-    <div className='w-full inset-0 mt-11 2xl:mt-20 flex justify-center items-center align'>
+    <div className='w-full inset-0 mt-11 pb-12 2xl:mt-20 flex justify-center items-center align'>
       <div className='rounded-xl shadow-2xl bg-white bg-opacity-40 xs:w-3 max-w-md w-full space-y-2'>
         <img
           className='mx-auto h-32 w-auto mt-8'
