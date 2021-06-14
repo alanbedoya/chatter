@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { ChatEngine } from 'react-chat-engine';
 import { useHistory } from 'react-router';
 import { Nav, Footer } from '../components';
 import { useAuth } from '../contexts/authContext';
 
 export const Chats = () => {
+  const didMountRef = useRef(false);
   const { user } = useAuth();
   console.log(user);
   const history = useHistory();
@@ -19,6 +20,10 @@ export const Chats = () => {
   };
 
   useEffect(() => {
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+    }
+
     if (!user) {
       history.push('/');
       return;
@@ -28,7 +33,7 @@ export const Chats = () => {
       .get('https://api.chatengine.io/users/me/', {
         headers: {
           'project-id': process.env.REACT_APP_PROJECT_ID,
-          'user-name': user.displayName,
+          'user-name': user.email,
           'user-secret': user.uid,
         },
       })
@@ -38,8 +43,8 @@ export const Chats = () => {
 
       .catch(() => {
         let formdata = new FormData();
-        // formdata.append('email', user.email);
-        formdata.append('username', user.displayName);
+        formdata.append('email', user.email);
+        formdata.append('username', user.email);
         formdata.append('secret', user.uid);
 
         getFile(user.photoURL).then((avatar) => {
@@ -65,7 +70,7 @@ export const Chats = () => {
       <ChatEngine
         height='calc(95vh - 37px)'
         projectID={process.env.REACT_APP_PROJECT_ID}
-        userName={user.displayName}
+        userName={user.email}
         userSecret={user.uid}
       />
       <Footer />
