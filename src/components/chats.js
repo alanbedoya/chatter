@@ -7,6 +7,7 @@ import { useAuth } from '../contexts/authContext';
 
 export const Chats = () => {
   const { user } = useAuth();
+  console.log(user);
   const history = useHistory();
   const [loading, setLoading] = useState(true);
 
@@ -27,7 +28,7 @@ export const Chats = () => {
       .get('https://api.chatengine.io/users/me/', {
         headers: {
           'project-id': process.env.REACT_APP_PROJECT_ID,
-          'user-name': user.email,
+          'user-name': user.displayName,
           'user-secret': user.uid,
         },
       })
@@ -37,8 +38,8 @@ export const Chats = () => {
 
       .catch(() => {
         let formdata = new FormData();
-        formdata.append('email', user.email);
-        formdata.append('username', user.email);
+        // formdata.append('email', user.email);
+        formdata.append('username', user.displayName);
         formdata.append('secret', user.uid);
 
         getFile(user.photoURL).then((avatar) => {
@@ -64,7 +65,7 @@ export const Chats = () => {
       <ChatEngine
         height='calc(95vh - 37px)'
         projectID={process.env.REACT_APP_PROJECT_ID}
-        userName={user.email}
+        userName={user.displayName}
         userSecret={user.uid}
       />
       <Footer />
