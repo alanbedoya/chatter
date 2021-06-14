@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ChatEngine } from 'react-chat-engine';
 import { useHistory } from 'react-router';
 import { Nav, Footer } from '../components';
