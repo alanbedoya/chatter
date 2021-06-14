@@ -10,8 +10,8 @@ import { auth } from '../firebase';
 
 export const Login = () => {
   return (
-    <div className='w-screen h-screen flex justify-center items-center'>
-      <div className='rounded-xl shadow-2xl bg-white bg-opacity-40 max-w-md w-full space-y-8'>
+    <div className='w-full inset-0 mt-11 2xl:mt-20 flex justify-center items-center align'>
+      <div className='rounded-xl shadow-2xl bg-white bg-opacity-40 xs:w-3 max-w-md w-full space-y-2'>
         <img
           className='mx-auto h-32 w-auto mt-8'
           src={chatter}
@@ -96,6 +96,9 @@ export const Login = () => {
             </div>
           </div>
         </form>
+        <div className='text-xs text-center text-indigo-900 pb-5'>
+          © 2021 Alan Bedoya
+        </div>
       </div>
     </div>
   );
