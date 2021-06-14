@@ -1,7 +1,7 @@
 import {
   AiFillGoogleCircle,
+  AiFillFacebook,
   AiFillGithub,
-  AiFillTwitterCircle,
 } from 'react-icons/ai';
 import chatter from '../assets/img/chatter.svg';
 import 'firebase/auth';
@@ -62,12 +62,12 @@ export const Login = () => {
               <button
                 onClick={() =>
                   auth.signInWithRedirect(
-                    new firebase.auth.TwitterAuthProvider()
+                    new firebase.auth.GithubAuthProvider()
                   )
                 }
                 className='appearance-none flex items-center justify-center w-full bg-gray-100 text-gray-700 shadow border border-gray-400 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none'
               >
-                <AiFillTwitterCircle className='h-6 w-6 fill-current text-gray-700' />
+                <AiFillGithub className='h-6 w-6 fill-current text-gray-700' />
               </button>
             </div>
             <div className='w-full md:w-1/3 px-3 pt-5 mx-2'>
@@ -86,12 +86,12 @@ export const Login = () => {
               <button
                 onClick={() =>
                   auth.signInWithRedirect(
-                    new firebase.auth.GithubAuthProvider()
+                    new firebase.auth.FacebookAuthProvider()
                   )
                 }
                 className='appearance-none flex items-center justify-center w-full bg-gray-100 text-gray-700 shadow border border-gray-400 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none'
               >
-                <AiFillGithub className='h-6 w-6 fill-current text-gray-700' />
+                <AiFillFacebook className='h-6 w-6 fill-current text-gray-700' />
               </button>
             </div>
           </div>
