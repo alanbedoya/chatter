@@ -2,16 +2,17 @@ import {
   AiFillGoogleCircle,
   AiFillFacebook,
   AiFillGithub,
+  AiFillTwitterCircle,
 } from 'react-icons/ai';
 import chatter from '../assets/img/chatter.svg';
 import 'firebase/auth';
-import firebase from 'firebase/app';
+import firebase from 'firebase';
 import { auth } from '../firebase';
 
 export const Login = () => {
   return (
-    <div className='w-full inset-0 mt-11 pb-12 2xl:mt-20 flex justify-center items-center align'>
-      <div className='rounded-xl shadow-2xl bg-white bg-opacity-40 xs:w-3 max-w-md w-full space-y-2'>
+    <div className='w-full inset-0 mt-24 3xl:mt-36  pb-12 flex justify-center items-center align'>
+      <div className='rounded-xl shadow-2xl bg-white bg-opacity-50 xs:w-3 max-w-md w-full space-y-2'>
         <img
           className='mx-auto h-32 w-auto mt-8'
           src={chatter}
@@ -20,82 +21,63 @@ export const Login = () => {
         <h2 className='mt-6 text-center text-3xl font-extrabold text-gray-800'>
           Welcome to Chatter!
         </h2>
-        <form className='flex flex-col pt-3 pb-12 px-4 sm:px-6 lg:px-8'>
-          <div className='w-full md:w-full px-3 mb-6'>
-            <label
-              className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
-              htmlFor='Password'
+        <div className='flex flex-col justify-center pt-3 pb-12 px-4 sm:px-6 lg:px-8'>
+          <span className='flex items-center justify-center space-x-2'>
+            <span className='h-px bg-gray-400 w-14'></span>
+            <span className='font-normal text-gray-500'>
+              sign in with either
+            </span>
+            <span className='h-px bg-gray-400 w-14'></span>
+          </span>
+          <div className='flex flex-col space-y-4 mt-6'>
+            <button
+              onClick={() =>
+                auth.signInWithRedirect(new firebase.auth.GithubAuthProvider())
+              }
+              className='flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none'
             >
-              Email address
-            </label>
-            <input
-              className='appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none'
-              type='email'
-              required
-            />
-          </div>
-          <div className='w-full md:w-full px-3 mb-6'>
-            <label
-              className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
-              htmlFor='Password'
+              <AiFillGithub className='w-6 h-6 text-gray-800 fill-current group-hover:text-white' />
+              <span className='text-sm font-medium text-gray-800 group-hover:text-white'>
+                Github
+              </span>
+            </button>
+            <button
+              className='flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-yellow-500 rounded-md group hover:bg-yellow-500 focus:outline-none'
+              onClick={() =>
+                auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+              }
             >
-              Password
-            </label>
-            <input
-              className='appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none'
-              type='password'
-              required
-            />
-          </div>
-          <div className='w-full md:w-full px-3 mb-6'>
-            <button className='appearance-none block w-full bg-blue-600 text-gray-100 font-bold rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500'>
-              Sign in
+              <AiFillGoogleCircle className='text-yellow-500 group-hover:text-gray-200 h-6 w-6' />
+              <span className='text-sm font-medium text-yellow-500 group-hover:text-gray-200'>
+                Google
+              </span>
+            </button>
+            <button
+              className='flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-blue-500 rounded-md group hover:bg-blue-500 focus:outline-none'
+              onClick={() =>
+                auth.signInWithRedirect(new firebase.auth.TwitterAuthProvider())
+              }
+            >
+              <AiFillTwitterCircle className='text-blue-500 group-hover:text-white h-6 w-6' />
+              <span className='text-sm font-medium text-blue-500 group-hover:text-white'>
+                Twitter
+              </span>
+            </button>
+            <button
+              className='flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-blue-700 rounded-md group hover:bg-blue-700 focus:outline-none'
+              onClick={() =>
+                auth.signInWithRedirect(
+                  new firebase.auth.FacebookAuthProvider()
+                )
+              }
+            >
+              <AiFillFacebook className='text-blue-700 group-hover:text-white h-6 w-6' />
+              <span className='text-sm font-medium text-blue-700 group-hover:text-white'>
+                Facebook
+              </span>
             </button>
           </div>
-          <div className='mx-auto -mb-6 pb-1'>
-            <span className='text-center text-xs text-gray-700'>
-              or sign up with
-            </span>
-          </div>
-          <div className='flex items-center w-full mt-2'>
-            <div className='w-full md:w-1/3 px-3 pt-4 mx-2 border-t border-gray-400'>
-              <button
-                onClick={() =>
-                  auth.signInWithRedirect(
-                    new firebase.auth.GithubAuthProvider()
-                  )
-                }
-                className='appearance-none flex items-center justify-center w-full bg-gray-100 text-gray-700 shadow border border-gray-400 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none'
-              >
-                <AiFillGithub className='h-6 w-6 fill-current text-gray-700' />
-              </button>
-            </div>
-            <div className='w-full md:w-1/3 px-3 pt-5 mx-2'>
-              <button
-                onClick={() =>
-                  auth.signInWithRedirect(
-                    new firebase.auth.GoogleAuthProvider()
-                  )
-                }
-                className='appearance-none flex items-center justify-center w-full bg-gray-100 text-gray-700 shadow border border-gray-400 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none'
-              >
-                <AiFillGoogleCircle className='h-6 w-6 fill-current text-gray-700' />
-              </button>
-            </div>
-            <div className='w-full md:w-1/3 px-3 pt-4 mx-2 border-t border-gray-400'>
-              <button
-                onClick={() =>
-                  auth.signInWithRedirect(
-                    new firebase.auth.FacebookAuthProvider()
-                  )
-                }
-                className='appearance-none flex items-center justify-center w-full bg-gray-100 text-gray-700 shadow border border-gray-400 rounded-lg py-3 px-3 leading-tight hover:bg-gray-200 hover:text-gray-700 focus:outline-none'
-              >
-                <AiFillFacebook className='h-6 w-6 fill-current text-gray-700' />
-              </button>
-            </div>
-          </div>
-        </form>
+        </div>
         <div className='text-xs text-center text-indigo-900 pb-5'>
           © 2021 Alan Bedoya
         </div>
