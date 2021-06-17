@@ -8,7 +8,6 @@ import { useAuth } from '../contexts/authContext';
 export const Chats = () => {
   const didMountRef = useRef(false);
   const { user } = useAuth();
-  console.log(user);
   const history = useHistory();
   const [loading, setLoading] = useState(true);
 
