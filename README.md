@@ -9,11 +9,11 @@ A live chatt app that allows a user to login in with either thier Github, Google
 Check out the live version of the app [here](https://chatter-messenger.netlify.app/)!
   
 ## Screenshots
-**Login Page**
+#### Login Page
 ![Login Page](https://res.cloudinary.com/alanbedoya/image/upload/v1624308426/Readme.md/2021-06-21_13-45-49_k67wcs.png)
 
 
-**Chat**
+#### Chat
 ![Chat Page](https://res.cloudinary.com/alanbedoya/image/upload/v1624308544/Readme.md/2021-06-17_01-29-09_f4narb.png)
 ## Tech Stack
 
