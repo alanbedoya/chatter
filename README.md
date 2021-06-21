@@ -1,7 +1,7 @@
 
 # Chatter
 
-A live chatt app that allows a user to login in with either thier Github, Google, Facebook, or Twitter account. A user can add another user to a new disscusion, and see live feedback if that user is curently active, and if they're typing back.
+A live chat app that allows a user to login in with either their Github, Google, Facebook, or Twitter account. A user can add another user to a new discussion, and see live feedback if that user is currently active and if they're typing back.
 
 
 ## Live Site
